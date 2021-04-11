@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        axios.get('https://raw.githubusercontent.com/hexschool/js-training/main/travelAPI-lv1.json')
+            .then(function (response) {
+                let ticket = response.data;
+                console.log(ticket);
+                console.log(ticket[0].id);
+                console.log(ticket[0].name);
+                console.log(ticket[0].imgUrl);
+                console.log(ticket[0].area);
+                console.log(ticket[0].description);
+                console.log(ticket[0].group);
+                console.log(ticket[0].price);
+                console.log(ticket[0].rate);
+            });
+    </script>
+</body>
+
+</html>

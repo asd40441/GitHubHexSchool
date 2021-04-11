@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3/23</title>
+</head>
+
+<body>
+    <p id="targetName"></p>
+    <img id="targetImg" src="" alt="">
+    <p id="targetArea"></p>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        const targetName = document.querySelector('#targetName');
+        const targetImg = document.querySelector('#targetImg');
+        const targetArea = document.querySelector('#targetArea');
+        let dataName = '';
+        let dataImg = '';
+        let dataArea = '';
+
+        axios.get('https://raw.githubusercontent.com/hexschool/js-training/main/travelAPI-lv1.json')
+            .then(function (response) {
+                let data = response.data;
+                dataName = data[0].name;
+                dataImg = data[0].imgUrl;
+                dataArea = data[0].area;
+                targetName.textContent = dataName;
+                targetImg.setAttribute('src',dataImg);
+                targetArea.textContent = dataArea;
+            });
+    </script>
+</body>
+
+</html>

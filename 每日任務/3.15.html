@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 第一題，請選取以下標籤 -->
+    <p id="targetID">請選取我</p>
+
+    <!-- 第二題，請選取以下標籤 -->
+    <p class="targetClass">請選取我</p>
+
+    <!-- 第三題，請選取以下標籤 -->
+    <div class="targetElementP">
+        <p>請選取我</p>
+    </div>
+
+    <script>
+        let elementID = document.querySelector("#targetID");
+        let elementClass = document.querySelector(".targetClass");
+        let elementP = document.querySelector(".targetElementP > p")
+    </script>
+
+</body>
+
+</html>

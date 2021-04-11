@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3/8每日任務</title>
+    <script>
+        function triggerMouseenter() {
+            console.log('滑入');
+        }
+
+        function triggerClick() {
+            alert('點擊');
+        }
+
+        var el = document.querySelector('#box');
+        el.addEventListener('mouseenter', triggerMouseenter);
+        el.addEventListener('click', triggerClick);
+    </script>
+
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 請 Fork 以下程式碼，修改 JS 的部分，使用 addEventListener() 在 #box 上綁定兩種事件型態: mouseenter ,click。
+    mouseenter 時會觸發 triggerMouseenter() 函式。
+    click 時會觸發 triggerClick() 函式。
+    https://codepen.io/znlcgmgk/pen/bGBroWz?editors=1111 -->
+    <div class="box" id="box"></div>
+</body>
+
+</html>
