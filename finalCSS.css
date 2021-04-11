@@ -1,0 +1,136 @@
+        .contianer {
+            width: 1200px;
+            margin: auto;
+        }
+
+        h1 {
+            font-size: 80px;
+            line-height: 95px;
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            width: 100%;
+            font-size: 32px;
+            line-height: 48px;
+            display: inline-block;
+            margin: 8px 0;
+            border-bottom: 1px solid black;
+        }
+
+        ul {
+            font-size: 24px;
+            line-height: 36px;
+        }
+
+        li {
+            margin-bottom: 24px;
+        }
+
+        span {
+            color: #A00404;
+            font-size: 24px;
+            margin-left: 16px;
+        }
+
+        img {
+            width: 324px;
+            margin: 48px 0;
+        }
+
+        .content {
+            font-size: 24px;
+        }
+
+        header {
+            border-bottom: 2px solid black;
+        }
+
+        .card {
+            margin-bottom: 72px;
+
+        }
+
+        .skills {
+            background-color: #415165;
+            color: white;
+            text-align: center;
+            padding: 24px;
+            margin-bottom: 72px;
+        }
+
+        .skills h2 {
+            border-bottom: none;
+        }
+
+        .skills span {
+            color: white;
+        }
+
+        .skilltitle {
+            border-bottom: 1px solid #ffffff;
+        }
+
+        .skillcontent {
+            width: 200px;
+            border-left: 1px solid #96A9C4;
+            text-align: left;
+            margin: auto;
+            margin-top: 40px;
+            padding: 0 24px;
+        }
+
+        .workcontent {
+            border-left: 1px solid #96A9C4;
+            padding-left: 24px;
+            margin-left: 24px;
+            width: 642px;
+            font-weight: bold;
+        }
+
+        .workcontent img {
+            width: auto;
+            margin: 0;
+        }
+
+        .workcontent li {
+            line-height: 30px;
+            font-size: 20px;
+        }
+
+        .workword {
+            font-weight: normal;
+        }
+
+        footer {
+            color: #FFFFFF;
+            background-color: #415165;
+            text-align: center;
+            padding: 48px 100px;
+        }
+
+        footer h2 {
+            border-bottom: none;
+        }
+
+        .footertitle {
+            border-bottom: 1px solid #ffffff;
+            margin-bottom: 32px;
+        }
+
+        footer li {
+            margin-bottom: 16px;
+        }
+
+        footer span {
+            color: #FFFFFF;
+        }
+
+        footer img {
+            width: auto;
+            margin: 0 12px;
+        }
+
+        footer h3 {
+            font-weight: normal;
+        }
