@@ -3,6 +3,15 @@ let api_path = 'asd40441';
 const productList = document.querySelector('.container');
 const cart = document.querySelector('.cart');
 const addCart = document.querySelector('.container');
+const deleteCart = document.querySelector('.deleteCart');
+
+deleteCart.addEventListener('click',()=>{
+    axios.delete(`${baseUrl}/api/livejs/v1/customer/${api_path}/carts`)
+    .then((response)=>{
+        console.log(response);
+        getCart();
+    })
+})
 
 function getProduct() {
     let url = `${baseUrl}/api/livejs/v1/customer/${api_path}/products`
@@ -31,7 +40,7 @@ function render(product) {
           <p class="card-text"><strong>售價:</strong>${item.price}</p>
           <p class="card-text"><strong>描述:</strong>${item.description}</p>
         </div>
-        <input type="button" data-id=${index} value="加入購物車">
+        <input type="button" class="addCard" data-id=${item.id} value="加入購物車">
       </div>
     </div>
   </div>`
@@ -40,8 +49,26 @@ function render(product) {
 }
 
 addCart.addEventListener('click', (e) => {
-    
+    if(e.target.getAttribute('class') !== 'addCard'){
+        return;
+    }
+    let id = e.target.getAttribute('data-id');
+    addCartData(id);
 })
+
+function addCartData(productID){
+    axios.post(`${baseUrl}/api/livejs/v1/customer/${api_path}/carts`,
+    {
+        "data": {
+            "productId" : productID,
+            "quantity" : 1
+        }
+    })
+    .then((response)=>{
+        console.log(response.data);
+        getCart();
+    })
+}
 
 function getCart() {
     axios.get(`${baseUrl}/api/livejs/v1/customer/${api_path}/carts`)
