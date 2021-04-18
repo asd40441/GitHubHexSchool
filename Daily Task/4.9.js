@@ -84,4 +84,26 @@ function getCart() {
         })
 }
 
+function postOrder(){
+    axios.post(`${baseUrl}/api/livejs/v1/customer/${api_path}/orders`,
+    {
+        "data": {
+          "user": {
+            "name": "六角學院",
+            "tel": "07-5313506",
+            "email": "hexschool@hexschool.com",
+            "address": "高雄市六角學院路",
+            "payment": "Apple Pay"
+          }
+        }
+      }
+    )
+    .then((res)=>{
+        console.log(res.data);
+    })
+    .catch((error)=>{
+        console.log(error);
+    })
+}
+
 getProduct();
