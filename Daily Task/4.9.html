@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,10 +13,19 @@
         }
     </style>
 </head>
+
 <body>
     <input type="button" class="deleteCart" value="刪除所有購物車">
     <div class="cart"></div>
     <div class="container"></div>
+
+    <ul>
+        <li><input type="text" placeholder="姓名" class="name"></li>
+        <li><input type="text" placeholder="電話" class="tel"></li>
+        <li><input type="text" placeholder="信箱" class="email"></li>
+        <li><input type="text" placeholder="地址" class="address"></li>
+        <li><input type="text" placeholder="付款方式" class="payment" value="Apple Pay" disabled></li>
+    </ul>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="4.9.js"></script>
