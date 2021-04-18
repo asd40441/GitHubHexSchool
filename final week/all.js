@@ -1,131 +1,82 @@
 // 請代入自己的網址路徑
-const api_path = "gonsakon";
+const api_path = "asd40441";
 const token = "5kmbS5JS43RUo6q82sMI1VmF1282";
+const baseUrl = 'https://hexschoollivejs.herokuapp.com';
+let data = [];
 
 // 取得產品列表
-function getProductList(){
-  axios.get(`https://hexschoollivejs.herokuapp.com/api/livejs/v1/customer/${api_path}/products`).
-    then(function (response) {
-      console.log(response.data);
+function getProductList() {
+  
+  let url = `${baseUrl}/api/livejs/v1/customer/${api_path}/products`;
+  axios.get(url)
+    .then((res) => {
+      data = res.data.products;
+      productList(data);
     })
 }
 
-// 加入購物車
-function addCartItem(){
-  axios.post(`https://hexschoollivejs.herokuapp.com/api/livejs/v1/customer/${api_path}/carts`,{
-    data: {
-      "productId": "0I8Y1D3YhtTrcH30goxZ",
-      "quantity": 1
-    }
-  }).
-    then(function (response) {
-      console.log(response.data);
-    })
+function productList(data) {
+  const productWrap = document.querySelector('.productWrap')
+  let str = '';
+  data.forEach((item) => {
+    str += `
+        <li class="productCard">
+        <h4 class="productType">新品</h4>
+        <img src="${item.images}"
+            alt="">
+        <a href="#" id="addCardBtn">加入購物車</a>
+        <h3>${item.title}</h3>
+        <del class="originPrice">NT$${item.origin_price}</del>
+        <p class="nowPrice">NT$${item.price}</p>
+    </li>
+        `
+    productWrap.innerHTML = str;
+  })
+}
 
+// 加入購物車
+function addCartItem() {
+  
 }
 
 
 // 取得購物車列表
-function getCartList(){
-  axios.get(`https://hexschoollivejs.herokuapp.com/api/livejs/v1/customer/${api_path}/carts`).
-    then(function (response) {
-      console.log(response.data);
-    })
+function getCartList() {
+
 }
 
 // 清除購物車內全部產品
-function deleteAllCartList(){
-  axios.delete(`https://hexschoollivejs.herokuapp.com/api/livejs/v1/customer/${api_path}/carts`).
-    then(function (response) {
-      console.log(response.data);
-    })
+function deleteAllCartList() {
+
 }
 
 // 刪除購物車內特定產品
 function deleteCartItem(cartId) {
-  axios.delete(`https://hexschoollivejs.herokuapp.com/api/livejs/v1/customer/${api_path}/carts/${cartId}`).
-    then(function (response) {
-      console.log(response.data);
-    })
+
 }
 
 // 送出購買訂單
-function createOrder(){
- 
-  axios.post(`https://hexschoollivejs.herokuapp.com/api/livejs/v1/customer/${api_path}/orders`,
-    {
-      "data": {
-        "user": {
-          "name": "六角學院",
-          "tel": "07-5313506",
-          "email": "hexschool@hexschool.com",
-          "address": "高雄市六角學院路",
-          "payment": "Apple Pay"
-        }
-      }
-    }
-  ).
-    then(function (response) {
-      console.log(response.data);
-    })
+function createOrder() {
+
 }
 
 // 取得訂單列表
-function getOrderList(){
-  axios.get(`https://hexschoollivejs.herokuapp.com/api/livejs/v1/admin/${api_path}/orders`,
-  {
-    headers: {
-      'Authorization': token
-    }
-  })
-  .then(function (response) {
-    console.log(response.data);
-  })
+function getOrderList() {
+
 }
 
 // 修改訂單狀態
 
 function editOrderList(orderId) {
-  axios.put(`https://hexschoollivejs.herokuapp.com/api/livejs/v1/admin/${api_path}/orders`,
-    {
-      "data": {
-        "id": orderId,
-        "paid": true
-      }
-    },
-    {
-      headers: {
-        'Authorization': token
-      }
-    })
-    .then(function (response) {
-      console.log(response.data);
-    })
+
 }
-  
+
 // 刪除全部訂單
 function deleteAllOrder() {
-  axios.delete(`https://hexschoollivejs.herokuapp.com/api/livejs/v1/admin/${api_path}/orders`,
-    {
-      headers: {
-        'Authorization': token
-      }
-    })
-    .then(function (response) {
-      console.log(response.data);
-    })
+
 }
 
 // 刪除特定訂單
-function deleteOrderItem(orderId){
-  axios.delete(`https://hexschoollivejs.herokuapp.com/api/livejs/v1/admin/${api_path}/orders/${orderId}`,
-    {
-      headers: {
-        'Authorization': token
-      }
-    })
-    .then(function (response) {
-      console.log(response.data);
-    })
-}
+function deleteOrderItem(orderId) {
 
+}
