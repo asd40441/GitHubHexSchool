@@ -1,9 +1,12 @@
+// 未做表單驗證
+
 let baseUrl = 'https://hexschoollivejs.herokuapp.com';
 let api_path = 'asd40441';
 const productList = document.querySelector('.container');
 const cart = document.querySelector('.cart');
 const addCart = document.querySelector('.container');
 const deleteCart = document.querySelector('.deleteCart');
+const orderBtn = document.querySelector('.orderBtn');
 
 deleteCart.addEventListener('click',()=>{
     axios.delete(`${baseUrl}/api/livejs/v1/customer/${api_path}/carts`)
@@ -11,6 +14,18 @@ deleteCart.addEventListener('click',()=>{
         console.log(response);
         getCart();
     })
+})
+
+addCart.addEventListener('click', (e) => {
+    if(e.target.getAttribute('class') !== 'addCard'){
+        return;
+    }
+    let id = e.target.getAttribute('data-id');
+    addCartData(id);
+})
+
+orderBtn.addEventListener('click',(e)=>{
+    postOrder();
 })
 
 function getProduct() {
@@ -48,14 +63,6 @@ function render(product) {
     productList.innerHTML = str;
 }
 
-addCart.addEventListener('click', (e) => {
-    if(e.target.getAttribute('class') !== 'addCard'){
-        return;
-    }
-    let id = e.target.getAttribute('data-id');
-    addCartData(id);
-})
-
 function addCartData(productID){
     axios.post(`${baseUrl}/api/livejs/v1/customer/${api_path}/carts`,
     {
@@ -85,21 +92,21 @@ function getCart() {
 }
 
 function postOrder(){
-    axios.post(`${baseUrl}/api/livejs/v1/customer/${api_path}/orders`,
-    {
+    let userData = {
         "data": {
           "user": {
-            "name": "六角學院",
-            "tel": "07-5313506",
-            "email": "hexschool@hexschool.com",
-            "address": "高雄市六角學院路",
-            "payment": "Apple Pay"
+            "name": document.querySelector('.name').value.trim(),
+            "tel": document.querySelector('.tel').value.trim(),
+            "email": document.querySelector('.email').value.trim(),
+            "address": document.querySelector('.address').value.trim(),
+            "payment": document.querySelector('.payment').value.trim()
           }
         }
       }
-    )
+    axios.post(`${baseUrl}/api/livejs/v1/customer/${api_path}/orders`, userData)
     .then((res)=>{
         console.log(res.data);
+        getProduct();
     })
     .catch((error)=>{
         console.log(error);
