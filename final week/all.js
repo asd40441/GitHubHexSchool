@@ -2,6 +2,8 @@
 const api_path = "asd40441";
 const token = "5kmbS5JS43RUo6q82sMI1VmF1282";
 const baseUrl = 'https://hexschoollivejs.herokuapp.com';
+
+// 宣告
 let data = [];
 let carts = [];
 let cartId = '';
@@ -24,9 +26,8 @@ function getProductList() {
       console.log(error);
     })
 }
-
+const productWrap = document.querySelector('.productWrap');
 function productList(data) {
-  const productWrap = document.querySelector('.productWrap')
   let str = '';
   data.forEach((item, index) => {
     str += `
@@ -42,10 +43,34 @@ function productList(data) {
     productWrap.innerHTML = str;
   })
 }
+// 選單分類
+const productSelect = document.querySelector('.productSelect');
+productSelect.addEventListener('change',(e)=>{
+  let category = e.target.value;
+  if(category=="全部"){
+    getProductList();
+    return;
+  }
+  let str = "";
+  data.forEach((item) => {
+    if (item.category == category ){
+      str += `
+        <li class="productCard">
+        <h4 class="productType">新品</h4>
+        <img src="${item.images}" alt="">
+        <a href="#" id="addCardBtn" class="addCardBtn" data-id="${item.id}">加入購物車</a>
+        <h3>${item.title}</h3>
+        <del class="originPrice">NT$${item.origin_price}</del>
+        <p class="nowPrice">NT$${item.price}</p>
+    </li>
+        `
+    }
+  })
+  productWrap.innerHTML = str;
+})
 
 // 加入購物車
-const productcard = document.querySelector('.productWrap');
-productcard.addEventListener('click', (e) => {
+productWrap.addEventListener('click', (e) => {
   e.preventDefault();
   if (e.target.getAttribute('class') !== 'addCardBtn') {
     return;
@@ -53,7 +78,6 @@ productcard.addEventListener('click', (e) => {
   let id = e.target.getAttribute('data-id');
   addCartItem(id);
 })
-
 function addCartItem(productID) {
   let url = `${baseUrl}/api/livejs/v1/customer/${api_path}/carts`;
   let postData = {
