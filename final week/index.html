@@ -289,23 +289,13 @@
             <option value="收納">收納</option>
             <option value="窗簾">窗簾</option>
         </select>
-        <ul class="productWrap">
 
 
 
-            <li class="productCard">
-                <h4 class="productType">新品</h4>
-                <img src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/dp6gW6u5hkUxxCuNi8RjbfgufygamNzdVHWb15lHZTxqZQs0gdDunQBS7F6M3MdegcQmKfLLoxHGgV3kYunUF37DNn6coPH6NqzZwRfhbsmEblpJQLqXLg4yCqUwP3IE.png"
-                    alt="">
-                <a href="#" id="addCardBtn">加入購物車</a>
-                <h3>Antony 雙人床架／雙人加大</h3>
-                <del class="originPrice">NT$18,000</del>
-                <p class="nowPrice">NT$12,000</p>
-            </li>
+        <ul class="productWrap"></ul>
 
 
-            
-        </ul>
+
     </section>
     <section class="shoppingCart">
         <h3 class="section-title">我的購物車</h3>
@@ -318,22 +308,11 @@
                     <th width="15%">金額</th>
                     <th width="15%"></th>
                 </tr>
-                <tr>
-                    <td>
-                        <div class="cardItem-title">
-                            <img src="https://i.imgur.com/HvT3zlU.png" alt="">
-                            <p>Antony 雙人床架／雙人加大</p>
-                        </div>
-                    </td>
-                    <td>NT$12,000</td>
-                    <td>1</td>
-                    <td>NT$12,000</td>
-                    <td class="discardBtn">
-                        <a href="#" class="material-icons">
-                            clear
-                        </a>
-                    </td>
-                </tr>
+
+
+                    <tbody class="cartNow"></tbody>
+
+
                 <tr>
                     <td>
                         <a href="#" class="discardAllBtn">刪除所有品項</a>
@@ -343,7 +322,7 @@
                     <td>
                         <p>總金額</p>
                     </td>
-                    <td>NT$13,980</td>
+                    <td class="totalPrice">NT$0</td>
                 </tr>
             </table>
         </div>
@@ -389,7 +368,7 @@
                     </select>
                 </div>
             </div>
-            <input type="submit" value="送出預訂資料" class="orderInfo-btn">
+            <input type="button" value="送出預訂資料" class="orderInfo-btn">
         </form>
     </section>
 
